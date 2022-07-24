@@ -60,7 +60,7 @@ var SerialHandler = /** @class */ (function () {
                         return [4 /*yield*/, navigator.serial.requestPort()];
                     case 2:
                         port = _a.sent();
-                        return [4 /*yield*/, port.open({ baudRate: 9600 })];
+                        return [4 /*yield*/, port.open({ baudRate: 115200 })];
                     case 3:
                         _a.sent(); // `baudRate` was `baudrate` in previous versions.
                         this.writer = port.writable.getWriter();
@@ -118,7 +118,7 @@ var SerialHandler = /** @class */ (function () {
                         return [2 /*return*/, this.decoder.decode(readerData.value)];
                     case 2:
                         err_2 = _a.sent();
-                        errorMessage = "error reading data: " + err_2;
+                        errorMessage = "error reading data: ".concat(err_2);
                         console.error(errorMessage);
                         return [2 /*return*/, errorMessage];
                     case 3: return [2 /*return*/];

@@ -25,7 +25,7 @@ class WebSerialDemoApp {
 
     this.messageButtons.forEach((button: HTMLButtonElement) => {
       button.addEventListener('pointerdown', () => {
-        serialHandler.write(String(button.dataset.value));
+        serialHandler.write(String(this.messageInput.value));
         this.getSerialMessage();
       })
     })

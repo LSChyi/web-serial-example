@@ -64,24 +64,24 @@ var WebSerialDemoApp = /** @class */ (function () {
         }); });
         this.messageButtons.forEach(function (button) {
             button.addEventListener('pointerdown', function () {
-                serialHandler.write(String(button.dataset.value));
+                serialHandler.write(String(_this.messageInput.value));
                 _this.getSerialMessage();
             });
         });
     }
     WebSerialDemoApp.prototype.getSerialMessage = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var now, listElement, _a, _b;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            var now, listElement, _a, _b, _c;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
                     case 0:
                         now = new Date();
                         listElement = document.createElement('li');
                         _a = listElement;
-                        _b = "Message received at " + String(now.getHours()).padStart(2, '0') + ":" + String(now.getMinutes()).padStart(2, '0') + "." + now.getMilliseconds() + ": ";
+                        _c = (_b = "Message received at ".concat(String(now.getHours()).padStart(2, '0'), ":").concat(String(now.getMinutes()).padStart(2, '0'), ".").concat(now.getMilliseconds(), ": ")).concat;
                         return [4 /*yield*/, serialHandler.read()];
                     case 1:
-                        _a.innerText = _b + (_c.sent());
+                        _a.innerText = _c.apply(_b, [_d.sent()]);
                         this.serialMessagesContainer.appendChild(listElement);
                         return [2 /*return*/];
                 }
